@@ -9,9 +9,20 @@ const displayController = (() => {
     const obj = {};
 
     obj.name = document.querySelector('.name');
+    obj.condition = document.querySelector('.condition');
+    obj.time = document.querySelector('.time');
+    obj.temp = document.querySelector('.temp');
     obj.icon = document.querySelector('.icon');
 
     return obj;
+  }
+
+  function displayCurrentData() {
+    cache.name.textContent = current.name;
+    cache.condition.textContent = current.condition;
+    cache.time.textContent = current.time;
+    cache.temp.textContent = `${current.temp_c}°C`;
+    cache.icon.src = current.icon;
   }
 
   function processData(data) {
@@ -25,8 +36,6 @@ const displayController = (() => {
     current.feel_f = data.current.feelslike_f;
     current.humidity = data.current.humidity;
     current.wind = data.current.wind_kph;
-
-    console.log(current);
   }
 
   function getLocation(location) {
@@ -34,9 +43,7 @@ const displayController = (() => {
     `, { mode: 'cors' })
       .then((res) => res.json())
       .then((res) => processData(res))
-      .then(() => {
-        cache.icon.src = current.icon;
-      });
+      .then(() => displayCurrentData());
   }
 
   return {
@@ -44,3 +51,16 @@ const displayController = (() => {
   };
 })();
 displayController.getLocation('Curitiba');
+
+const locationText = document.querySelector('#location');
+const searchBtn = document.querySelector('.search-button');
+
+searchBtn.addEventListener('click', () => {
+  displayController.getLocation(locationText.value);
+});
+document.addEventListener('keypress', (e) => {
+  if(e.code === 'Enter') {
+    displayController.getLocation(locationText.value);
+    locationText.value = '';
+  }
+})

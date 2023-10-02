@@ -53,19 +53,21 @@ body {
 /* Current */
 
 .current {
-    padding: 12px;
+    padding-top: 20px;
     background-color: rgb(230, 230, 230);
     border-radius: 8px;
+    text-align: center;
 }
 
 .name {
     font-weight: bold;
-    font-size: 2.25rem;
-    margin-bottom: 8px;
+    font-size: 2.85rem;
+    margin-bottom: 24px;
 }
 
 .condition {
     margin-bottom: -4px;
+    font-size: 1.25rem;
 }
 
 .time {
@@ -75,5 +77,10 @@ body {
 .temp {
     font-weight: bold;
     font-size: 2.65rem;
-    margin-block: 1rem;
+    margin-top: 1rem;
+}
+
+.icon {
+    object-fit: cover;
+    width: 80px;
 }
