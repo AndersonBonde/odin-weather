@@ -4,6 +4,76 @@
     padding: 0;
 }
 
-div {
-    background-color: tomato;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-color: lightgray;
+    width: 600px;
+    margin: 3rem auto;
+    padding: 12px;
+}
+
+/* Location search field */
+
+.location-fields {
+    --fields-height: 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#location {
+    font-size: 1.15rem;
+}
+
+.location-fields input {
+    height: var(--fields-height);
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.search-button {
+    height: var(--fields-height);
+    padding: 4px 12px;
+    border: none;
+    color: black;
+    border-radius: 4px;
+}
+
+.search-button:hover {
+    background-color: white;
+    outline: 1px solid black;
+}
+
+/* Current */
+
+.current {
+    padding: 12px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 8px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+}
+
+.condition {
+    margin-bottom: -4px;
+}
+
+.time {
+    margin-top: 4px;
+}
+
+.temp {
+    font-weight: bold;
+    font-size: 2.65rem;
+    margin-block: 1rem;
 }
