@@ -84,3 +84,33 @@ body {
     object-fit: cover;
     width: 80px;
 }
+
+/* Extra */
+
+.extra {
+    background-color: rgb(230, 230, 230);
+    margin-top: 12px;
+    padding-top: 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.extra div {
+    min-width: 120px;
+    text-align: center;
+}
+
+.extra div p {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.35rem;
+    margin-left: 6px;
+}
+
+.extra .value {
+    display: block;
+    margin-block: 12px;
+    font-size: 1.15rem;
+}

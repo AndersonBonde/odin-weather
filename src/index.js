@@ -1,4 +1,6 @@
 import './style.css';
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
 
 const displayController = (() => {
   const cache = cacheDOM();
@@ -36,6 +38,10 @@ const displayController = (() => {
     current.feel_f = data.current.feelslike_f;
     current.humidity = data.current.humidity;
     current.wind = data.current.wind_kph;
+
+    forecast.rain = data.forecast.forecastday[0].day.daily_chance_of_rain;
+
+    console.log(data);
   }
 
   function getLocation(location) {
@@ -52,15 +58,19 @@ const displayController = (() => {
 })();
 displayController.getLocation('Curitiba');
 
+// Functionality to search by location;
+
 const locationText = document.querySelector('#location');
 const searchBtn = document.querySelector('.search-button');
 
 searchBtn.addEventListener('click', () => {
   displayController.getLocation(locationText.value);
 });
+
+// Add enter shortcut to search for the location;
 document.addEventListener('keypress', (e) => {
-  if(e.code === 'Enter') {
+  if (e.code === 'Enter') {
     displayController.getLocation(locationText.value);
     locationText.value = '';
   }
-})
+});
