@@ -15,16 +15,22 @@ const displayController = (() => {
     obj.time = document.querySelector('.time');
     obj.temp = document.querySelector('.temp');
     obj.icon = document.querySelector('.icon');
+    obj.humidity = document.querySelector('.humidity .value');
+    obj.wind = document.querySelector('.wind .value');
+    obj.rain = document.querySelector('.rain .value');
 
     return obj;
   }
 
-  function displayCurrentData() {
+  function displayData() {
     cache.name.textContent = current.name;
     cache.condition.textContent = current.condition;
     cache.time.textContent = current.time;
     cache.temp.textContent = `${current.temp_c}°C`;
     cache.icon.src = current.icon;
+    cache.humidity.textContent = `${current.humidity} %`;
+    cache.wind.textContent = `${current.wind} km/h`;
+    cache.rain.textContent = `${forecast.rain} %`;
   }
 
   function processData(data) {
@@ -49,7 +55,7 @@ const displayController = (() => {
     `, { mode: 'cors' })
       .then((res) => res.json())
       .then((res) => processData(res))
-      .then(() => displayCurrentData());
+      .then(() => displayData());
   }
 
   return {
