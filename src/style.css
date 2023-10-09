@@ -10,7 +10,7 @@ body {
 
 .container {
     background-color: lightgray;
-    width: 600px;
+    width: 900px;
     margin: 3rem auto;
     padding: 12px;
 }
@@ -103,6 +103,8 @@ body {
     align-items: center;
     padding-block: 4px;
     margin-top: 4px;
+    flex: 1;
+    max-width: 200px;
 }
 
 .extra .icon {
@@ -113,6 +115,7 @@ body {
 .extra .info {
     display: flex;
     flex-direction: column;
+    padding-right: 12px;
 }
 
 .extra p {
@@ -123,4 +126,29 @@ body {
 .extra .value {
     font-size: 1.15rem;
     margin-top: -12px;
+}
+
+/* Daily info */
+
+.daily {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.daily > div {
+    flex: 1;
+    padding: 12px;
+    background-color: rgb(230, 230, 230);
+}
+
+.day-text {
+    font-weight: bold;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+.max-temp {
+    font-size: 1.35rem;
 }
